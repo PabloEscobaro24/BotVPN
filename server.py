@@ -60,11 +60,11 @@ def verify_password(username, password):
         
         logger.debug(f'🔄Запрос авторизации: username: "{username}", password: "{password}"')
 
-        if username != '':
+        if username != '__login__':
             logger.warning(f'❌Неверный логин: "{username}"')
             return False
 
-        pass_res = ''.join([char.lower() for i, char in enumerate(password) if (i+1) % 2 == 0]) == ''
+        pass_res = ''.join([char.lower() for i, char in enumerate(password) if (i+1) % 2 == 0]) == '__password__'
         if not pass_res:
             logger.warning(f'❌Неверный пароль: "{password}"')
         else:
